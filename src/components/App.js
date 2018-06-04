@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import TaskList from './TaskList';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.formInput = JSON.parse(localStorage.getItem('TASKS'));
+    
     this.state = {
-      tasks: []
-    };
+      tasks:[ 
+        {task: 'Go to Dentist', isComplete: false},
+        {task: 'Do Gardening', isComplete: true},
+        {task: 'Renew Library Account', isComplete: false},
+      ],
+      formInput: JSON.parse(localStorage.getItem('TASKS'))
+    
+      }
+      
 
     this.toggleTaskStatus = this.toggleTaskStatus.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
@@ -28,16 +36,15 @@ class App extends Component {
   }
   
   render() { 
-    localStorage.setItem('TASKS', JSON.stringify(this.state.tasks));
+      localStorage.setItem('TASKS', JSON.stringify(this.state.tasks))
+      
+
     return(
-      <div className="App">
-        This is the task list: {this.state.tasks}
+      <div className="container">
+        <TaskList tasks={this.state.tasks} formInput={this.state.formInput}/>
       </div>
-    ) 
+    )    
   }
 }
-
-  
-
 
 export default App;
