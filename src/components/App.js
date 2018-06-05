@@ -41,7 +41,8 @@ class App extends Component {
 
     return(
       <div className="container">
-        <TaskList tasks={this.state.tasks} formInput={this.state.formInput}/>
+        <TaskList tasks={this.state.tasks} formInput={this.state.formInput} toggleTaskStatus={this.toggleTaskStatus} 
+        deleteTask={this.deleteTask}/>
       </div>
     )    
   }

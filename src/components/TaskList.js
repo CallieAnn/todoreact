@@ -7,18 +7,17 @@ class TaskList extends Component {
 
         return( 
             <div>
-                <li>
                     { tasks.map((task, index) => 
                     <Task
+                    key={index}
                     task={task} 
                     index={index} 
-                    toggle={this.props.toggleTaskStatus}
                     delete={this.props.deleteTask} 
+                    toggleTaskStatus={this.props.toggleTaskStatus}
+                    deleteTask={this.props.deleteTask}
             
                     /> 
                     )}
-                </li>
-        
             </div>
         );//tasks.map is mapping over array
         
