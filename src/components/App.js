@@ -25,13 +25,35 @@ class App extends Component {
   }
   
   toggleTaskStatus(index) {
+    let tasks=this.state.tasks;
+    console.log(tasks);
+    tasks[index].isComplete = !tasks[index].isComplete;
+    this.setState({
+      tasks: tasks
+    });
    console.log("Toggle the task");
   }
 
   deleteTask(event, taskIndex) {
+    let tasks=this.state.tasks;
+    tasks.splice(taskIndex, 1);
+    this.setState({
+      tasks: tasks
+    });
+
     console.log("Delete the task");
   }
   addTask(task) {
+    let tasks=this.state.tasks;
+    let newTask = {
+      task,
+      isComplete: false,
+    };
+    let parentDiv = document.getElementById('addTask').parentElement;
+    if(task === '') {
+      parentDiv.classList.add('has-error');
+    } else {
+      parentDiv.classList.remove('has-error');
     console.log("Add the task");
   }
   

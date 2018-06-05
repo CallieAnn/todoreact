@@ -12,6 +12,7 @@ class TaskList extends Component {
                     key={index}
                     task={task} 
                     index={index} 
+                    isComplete={task.isComplete}
                     delete={this.props.deleteTask} 
                     toggleTaskStatus={this.props.toggleTaskStatus}
                     deleteTask={this.props.deleteTask}
