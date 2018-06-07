@@ -7,6 +7,7 @@ class TaskList extends Component {
 
         return( 
             <div>
+                <ul>
                     { tasks.map((task, index) => 
                     <Task
                     key={index}
@@ -19,6 +20,7 @@ class TaskList extends Component {
             
                     /> 
                     )}
+                </ul>
             </div>
         );//tasks.map is mapping over array
         

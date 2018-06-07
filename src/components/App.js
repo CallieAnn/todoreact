@@ -25,7 +25,7 @@ class App extends Component {
   }
   
   toggleTaskStatus(index) {
-    let tasks=this.state.tasks;
+    let tasks=JSON.parse(JSON.stringify(this.state.tasks));
     console.log(tasks);
     tasks[index].isComplete = !tasks[index].isComplete;
     this.setState({
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   deleteTask(event, taskIndex) {
-    let tasks=this.state.tasks;
+    let tasks=JSON.parse(JSON.stringify(this.state.tasks));
     tasks.splice(taskIndex, 1);
     this.setState({
       tasks: tasks
@@ -44,29 +44,29 @@ class App extends Component {
     console.log("Delete the task");
   }
   addTask(task) {
-    let tasks=this.state.tasks;
     let newTask = {
       task,
       isComplete: false,
+    
     };
-    let parentDiv = document.getElementById('addTask').parentElement;
-    if(task === '') {
-      parentDiv.classList.add('has-error');
-    } else {
-      parentDiv.classList.remove('has-error');
-    console.log("Add the task");
+    let tasks=JSON.parse(JSON.stringify(this.state.tasks));
+    tasks.push(newTask);
+    this.setState({
+      tasks: tasks
+    });
+
   }
-}
   
   render() { 
-      localStorage.setItem('TASKS', JSON.stringify(this.state.tasks))
+      localStorage.setItem('TASKS', JSON.stringify(this.state.tasks));
       
 
     return(
-      <div className="container">
-        <TaskList tasks={this.state.tasks} formInput={this.state.formInput} toggleTaskStatus={this.toggleTaskStatus} 
-        deleteTask={this.deleteTask}/>
-        <TaskForm tasks={this.state.tasks} addTask={this.addTask}/>
+      <div className="flex-container">
+        <h1>To-Do List</h1>
+          <TaskList tasks={this.state.tasks} formInput={this.state.formInput} toggleTaskStatus={this.toggleTaskStatus} 
+          deleteTask={this.deleteTask}/>
+          <TaskForm tasks={this.state.tasks} addTask={this.addTask}/>
       </div>
     )    
   }

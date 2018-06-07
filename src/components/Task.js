@@ -23,17 +23,17 @@ class Task extends Component {
         const onDeleteTask = this.onDeleteTask.bind(this);
         
         return (
-            <li className="list-group-item checkbox">
+          <li className="list-group-item checkbox">
             <div className="row">
-              <div className="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
+              <span className="checkbox-area">
                 <label><input id="toggleTaskStatus" type="checkbox" onChange={this.toggleTask.bind(this)} value="" className="" checked={isComplete ? 'checked' : ''}></input></label>
-              </div>
-              <div className={"col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text " + (isComplete?'complete':'')}>
+              </span>
+              <span className={"task-area" + (isComplete? ' complete':'')}>
                 {task.task}
-              </div>
-              <div className="delete-icon-area">
-                <button className="" onClick={onDeleteTask}>Delete</button>
-              </div>
+              </span>
+              <span className="delete-area">
+                <button className="delete" onClick={onDeleteTask}>Delete</button>
+              </span>
             </div>
           </li>
        ) 

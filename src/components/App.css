@@ -1,7 +1,10 @@
 body {
-    padding-top: 50px;
+    padding: 75px ;
+    
+    background-color:antiquewhite;
+    
   }
-  .starter-template {
+/*  .starter-template {
     padding: 40px 15px;
     text-align: center;
   }
@@ -26,7 +29,76 @@ body {
   }
   .delete-icon {
     color: red;
-  }
+  }*/
   .complete {
     text-decoration: line-through;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 100%;
+
+    
+  }
+
+  ul {
+   list-style-type: none;
+   padding:0px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+   
+   
+  }
+
+  li {
+    margin-bottom: 2em;
+    font-size: 20px;
+  }
+
+  .add {
+    margin-top: 15px;
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    
+  }
+
+  .task {
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Jua', sans-serif;
+  }
+
+  .delete {
+    border-radius: 5px;
+    background-color: rgb(4, 134, 134);
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-family: 'Jua', sans-serif;
+    font-size: 50px;
+    margin-top:0px;
+     
+  }
+
+  .checkbox-area{
+    margin-right:10px;
+  }
+
+  .task-area{
+    margin-right: 10px;
   }
